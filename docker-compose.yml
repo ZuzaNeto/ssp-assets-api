@@ -1,0 +1,16 @@
+services:
+  db:
+    image: postgres:15
+    container_name: ssp_assets_db
+    restart: always
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: ssp_password
+      POSTGRES_DB: ssp_assets
+    ports:
+      - "5433:5432"
+    volumes:
+      - db_data:/var/lib/postgresql/data
+
+volumes:
+  db_data:
